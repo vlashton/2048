@@ -11,23 +11,25 @@ function auto_move() {
   // Replace left moves with right moves
   //if (!GM.move(direction == 3 ? 1 : direction)) {
 
-  var rn = Math.random();
-  // 50% right, 35% down, 15% up, 0% left
-  var direction = rn < 0.03 ? 3 :
-                  rn < 0.53 ? 1 :
-                  rn < 0.88 ? 2 :
-                  0;
+  GM.move(1);
 
-  if (!GM.move(direction)) {
-    if (!GM.move(1)) {     // right
-      if (!GM.move(2)) {   // down
-        if (!GM.move(0)) { // up
-          GM.move(3);      // left
-          GM.move(1);      // right
-        }
-      }
-    }
-  }
+  //var rn = Math.random();
+  //// 50% right, 35% down, 15% up, 0% left
+  //var direction = rn < 0.03 ? 3 :
+  //                rn < 0.53 ? 1 :
+  //                rn < 0.88 ? 2 :
+  //                0;
+  //
+  //if (!GM.move(direction)) {
+  //  if (!GM.move(1)) {     // right
+  //    if (!GM.move(2)) {   // down
+  //      if (!GM.move(0)) { // up
+  //        GM.move(3);      // left
+  //        GM.move(1);      // right
+  //      }
+  //    }
+  //  }
+  //}
 
   //var rn = Math.random();
   //direction = rn < 0.5 ? 1 : rn < 0.75 ? 0 : 2;
