@@ -11,7 +11,7 @@ function auto_move() {
   // Replace left moves with right moves
   //if (!GM.move(direction == 3 ? 1 : direction)) {
 
-  GM.move(1);
+  if (!GM.move(1)) GM.move(2);
 
   //var rn = Math.random();
   //// 50% right, 35% down, 15% up, 0% left
