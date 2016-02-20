@@ -37,6 +37,9 @@ Grid.prototype.fromState = function (state) {
 Grid.prototype.randomAvailableCell = function () {
   var cells = this.availableCells();
 
+  // hack to get tiles in top left corner:
+  return cells[0];
+
   if (cells.length) {
     return cells[Math.floor(Math.random() * cells.length)];
   }
@@ -47,7 +50,7 @@ Grid.prototype.availableCells = function () {
 
   this.eachCell(function (x, y, tile) {
     if (!tile) {
-      cells.push({ x: x, y: y });
+      cells.push({x: x, y: y});
     }
   });
 
@@ -56,8 +59,8 @@ Grid.prototype.availableCells = function () {
 
 // Call callback for every cell
 Grid.prototype.eachCell = function (callback) {
-  for (var x = 0; x < this.size; x++) {
-    for (var y = 0; y < this.size; y++) {
+  for (var y = 0; y < this.size; y++) {
+    for (var x = 0; x < this.size; x++) {
       callback(x, y, this.cells[x][y]);
     }
   }
@@ -96,7 +99,7 @@ Grid.prototype.removeTile = function (tile) {
 
 Grid.prototype.withinBounds = function (position) {
   return position.x >= 0 && position.x < this.size &&
-         position.y >= 0 && position.y < this.size;
+      position.y >= 0 && position.y < this.size;
 };
 
 Grid.prototype.serialize = function () {

@@ -11,20 +11,19 @@ window.fakeStorage = {
 
   removeItem: function (id) {
     return delete this._data[id];
-  },
-
-  clear: function () {
-    return this._data = {};
   }
+
+  //clear: function () {
+  //  return this._data = {};
+  //}
 };
 
 function LocalStorageManager() {
-  this.bestScoreKey     = "bestScore";
-  this.gameStateKey     = "gameState";
-  this.noticeClosedKey  = "noticeClosed";
+  this.bestScoreKey = "bestScore";
+  this.gameStateKey = "gameState";
 
   var supported = this.localStorageSupported();
-  this.storage = supported ? window.localStorage : window.fakeStorage;
+  this.storage  = supported ? window.localStorage : window.fakeStorage;
 }
 
 LocalStorageManager.prototype.localStorageSupported = function () {
@@ -42,7 +41,7 @@ LocalStorageManager.prototype.localStorageSupported = function () {
 
 // Best score getters/setters
 LocalStorageManager.prototype.getBestScore = function () {
-  return this.storage.getItem(this.bestScoreKey) || 0;
+  return JSON.parse(this.storage.getItem(this.bestScoreKey)) || 0;
 };
 
 LocalStorageManager.prototype.setBestScore = function (score) {
@@ -61,12 +60,4 @@ LocalStorageManager.prototype.setGameState = function (gameState) {
 
 LocalStorageManager.prototype.clearGameState = function () {
   this.storage.removeItem(this.gameStateKey);
-};
-
-LocalStorageManager.prototype.setNoticeClosed = function (noticeClosed) {
-  this.storage.setItem(this.noticeClosedKey, JSON.stringify(noticeClosed));
-};
-
-LocalStorageManager.prototype.getNoticeClosed = function () {
-  return JSON.parse(this.storage.getItem(this.noticeClosedKey) || "false");
 };
