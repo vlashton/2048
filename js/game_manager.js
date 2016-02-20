@@ -7,7 +7,7 @@ function GameManager(size, InputManager, Actuator, StorageManager) {
   this.startTiles = 2;
 
   this.inputManager.on("move", this.move.bind(this));
-  //this.inputManager.on("restart", this.restart.bind(this));
+  this.inputManager.on("restart", this.restart.bind(this));
   this.inputManager.on("keepPlaying", this.keepPlaying.bind(this));
 
   this.displayCells();
@@ -109,7 +109,8 @@ GameManager.prototype.addSequentialTiles = function () {
 // Adds a tile in a random position
 GameManager.prototype.addRandomTile = function () {
   if (this.grid.cellsAvailable()) {
-    var value = Math.random() < 0.9 ? 2 : 4;
+    //var value = Math.random() < 0.9 ? 2 : 4;
+    var value = 4;
     //var tile = new Tile(this.grid.availableCells[0], 2);
     var tile  = new Tile(this.grid.randomAvailableCell(), value);
 
@@ -211,6 +212,7 @@ GameManager.prototype.move = function (direction) {
           self.grid.removeTile(tile);
 
           // Converge the two tiles' positions
+          // Necessary to display movement/animation on merge
           tile.updatePosition(positions.next);
 
           // Update the score
