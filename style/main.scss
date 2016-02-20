@@ -1,7 +1,7 @@
 @import "helpers";
 @import "fonts/clear-sans.css";
 
-$grid-row-cells: 64; // 4;
+$grid-row-cells: 38; // 4;
 $field-width: 940px; // 1060px; // 500px;
 $field-width-smaller: 380px; // 280px;
 $grid-spacing: $field-width / $grid-row-cells / 8.33; // 15px;
