@@ -139,7 +139,7 @@ hr {
   margin-bottom: 30px; }
 
 .container {
-  width: 1720.21128px;
+  width: 1908.21128px;
   margin: 0 auto; }
   @media screen and (max-width: 960px) {
     .container {
@@ -169,7 +169,7 @@ hr {
   padding: 28.21128px;
   background: #bbada0;
   border-radius: 6px;
-  width: 752px;
+  width: 940px;
   height: 940px;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -1163,5 +1163,9 @@ hr {
   overflow: hidden;
   clip: rect(0, 0, 0, 0);
   border: 0; }
+
+.numTiles {
+  min-width: 2em;
+  padding-right: 0.5em; }
 
 /*# sourceMappingURL=main.css.map */
